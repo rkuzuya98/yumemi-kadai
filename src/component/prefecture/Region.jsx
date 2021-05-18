@@ -46,7 +46,7 @@ const Wrapper = styled.div`
   border-bottom: 1px solid #ddd;
   & > div {
     position: relative;
-    padding: 0px 10px;
+    padding: 0px;
     & > p {
       /* font-size:  */
       font-weight: bold;
@@ -63,7 +63,7 @@ const Wrapper = styled.div`
       position: absolute;
       color: #333;
       top: 50%;
-      right: 20px;
+      right: 10px;
       transform: translateY(-50%);
       border-radius: 50%;
       transition: all 0.3s ease;

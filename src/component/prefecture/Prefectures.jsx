@@ -21,4 +21,9 @@ export const Prefectures = ({
   )
 }
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  padding: 0 10px;
+  & > h2 {
+    font-size: 18px;
+  }
+`

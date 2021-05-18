@@ -34,8 +34,9 @@ export const RegionPrefectures = ({
 const Wrapper = styled.div`
   /* background-color: red; */
   & > form {
-    padding: 10px 10px 20px 10px;
+    padding: 5px 10px 15px 10px;
     display: flex;
     flex-wrap: wrap;
+    /* font-weight: bold; */
   }
 `
