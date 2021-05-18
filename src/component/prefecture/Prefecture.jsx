@@ -6,7 +6,12 @@ export const Prefecture = ({
 }) => {
   return (
     <Wrapper>
-      {prefecture.prefName}
+      <label>
+        <input
+          type="checkbox"
+          />
+        {prefecture.prefName}
+      </label>
     </Wrapper>
   )
 }
