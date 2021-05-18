@@ -6,7 +6,9 @@ import { sortRegion } from './function/sortRegion';
 import { Region } from './Region';
 
 export const Regions = ({
-  prefectureData
+  prefectureData,
+  selectingPrefectures,
+  hdSelectingPrefectures
 }) => {
   return (
     <Wrapper>
@@ -26,6 +28,8 @@ export const Regions = ({
               key={item.regionCode}
               regionPrefectures={regionPrefectures}
               region={item}
+              selectingPrefectures={selectingPrefectures}
+              hdSelectingPrefectures={hdSelectingPrefectures}
             />
           )
         })

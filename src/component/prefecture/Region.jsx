@@ -4,7 +4,9 @@ import { Prefecture } from './Prefecture';
 
 export const Region = ({
   regionPrefectures,
-  region
+  region,
+  selectingPrefectures,
+  hdSelectingPrefectures
 }) => {
 
   // 都道府県（true: 表示, false: 非表示）
@@ -25,6 +27,8 @@ export const Region = ({
               <Prefecture
                 key={item.prefCode}
                 prefecture={item}
+                selectingPrefectures={selectingPrefectures}
+                hdSelectingPrefectures={hdSelectingPrefectures}
               />
             )
           })
