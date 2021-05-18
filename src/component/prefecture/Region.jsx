@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Prefecture } from './Prefecture';
+import { RegionPrefectures } from './RegionPrefectures';
 
 export const Region = ({
   regionPrefectures,
@@ -10,43 +10,34 @@ export const Region = ({
 }) => {
 
   // 都道府県（true: 表示, false: 非表示）
-  const [prefecture, setPrefecture] = useState(false)
-  const hdPrefecture = () => setPrefecture(!prefecture)
+  const [showPrefecture, setShowPrefecture] = useState(false)
+  const hdShowPrefecture = () => setShowPrefecture(!showPrefecture)
 
   return (
     <Wrapper>
       <div>
         <p>
           <span
-            onClick={hdPrefecture}
+            onClick={hdShowPrefecture}
           >
             {region.regionName}
           </span>
         </p>
         <i
           className={
-            prefecture ?
+            showPrefecture ?
             "fas fa-chevron-up" :
             "fas fa-chevron-down"
           }
-          onClick={hdPrefecture}
+          onClick={hdShowPrefecture}
         />
       </div>
-      <form>
-        {
-          regionPrefectures.map((item) => {
-            return (
-              prefecture &&
-              <Prefecture
-                key={item.prefCode}
-                prefecture={item}
-                selectingPrefectures={selectingPrefectures}
-                hdSelectingPrefectures={hdSelectingPrefectures}
-              />
-            )
-          })
-        }
-      </form>
+      <RegionPrefectures
+        showPrefecture={showPrefecture}
+        regionPrefectures={regionPrefectures}
+        selectingPrefectures={selectingPrefectures}
+        hdSelectingPrefectures={hdSelectingPrefectures}
+      />
     </Wrapper>
   )
 }

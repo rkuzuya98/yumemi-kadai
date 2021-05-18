@@ -20,4 +20,5 @@ export const Prefecture = ({
   )
 }
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+`
