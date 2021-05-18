@@ -16,13 +16,16 @@ export const Regions = ({
           prefectureData.map((d) => {
             const regionCode = sortRegion(d.prefCode);
             if (regionCode === item.regionCode) {
-              regionPrefectures.push(item)
+              regionPrefectures.push(d)
             }
           })
+          // console.log(item.regionCode)
+          // console.log(regionPrefectures)
           return (
             <Region
               key={item.regionCode}
               regionPrefectures={regionPrefectures}
+              region={item}
             />
           )
         })

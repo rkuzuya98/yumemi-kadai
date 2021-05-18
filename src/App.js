@@ -9,7 +9,7 @@ export const App = () => {
 
   const [prefectureData, setPrefectureData] = useState([])
 
-  console.log(prefectureData)
+  // console.log(prefectureData)
 
   useEffect(() => {
     getPrefecturesData(setPrefectureData)

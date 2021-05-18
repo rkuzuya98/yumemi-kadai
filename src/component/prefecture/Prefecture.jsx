@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const Prefecture = () => {
+export const Prefecture = ({
+  prefecture
+}) => {
   return (
     <Wrapper>
+      {prefecture.prefName}
     </Wrapper>
   )
 }

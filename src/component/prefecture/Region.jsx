@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Prefecture } from './Prefecture';
 
 export const Region = ({
-  regionPrefectures
+  regionPrefectures,
+  region
 }) => {
-  console.log(regionPrefectures)
+
+  // 都道府県（true: 表示, false: 非表示）
+  const [prefecture, setPrefecture] = useState(false)
+  const hdPrefecture = () => setPrefecture(!prefecture)
+
   return (
     <Wrapper>
-      <Prefecture/>
+      <p>
+        {region.regionName}
+        <i className="fas fa-chevron-down" onClick={hdPrefecture}/>
+      </p>
+      <form>
+        {
+          regionPrefectures.map((item) => {
+            return (
+              prefecture &&
+              <Prefecture
+                key={item.prefCode}
+                prefecture={item}
+              />
+            )
+          })
+        }
+      </form>
     </Wrapper>
   )
 }
