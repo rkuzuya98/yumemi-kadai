@@ -37,7 +37,7 @@ export const App = () => {
 
   // 人口データを取得（API）
   useEffect(() => {
-    getPopulationData(selectingPrefectures,setPopulations)
+    getPopulationData(selectingPrefectures,setPopulations, prefectureData)
   },[selectingPrefectures])
 
   return (
