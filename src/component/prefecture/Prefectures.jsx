@@ -10,15 +10,9 @@ export const Prefectures = ({
   return (
     <Wrapper>
       <h2>都道府県</h2>
-      {
-        prefectureData.map((item) => {
-          const regionCode = sortRegion(item.prefCode);
-          return (
-            item.prefName
-          )
-        })
-      }
-      <Regions/>
+      <Regions
+        prefectureData={prefectureData}
+      />
     </Wrapper>
   )
 }
