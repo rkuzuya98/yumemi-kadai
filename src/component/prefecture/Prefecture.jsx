@@ -21,4 +21,10 @@ export const Prefecture = ({
 }
 
 const Wrapper = styled.div`
+  margin: 5px 10px;
+  transition: all 0.3s ease;
+  &:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
 `
