@@ -12,7 +12,7 @@ export const App = () => {
   const [prefectureData, setPrefectureData] = useState([])
 
   // 選択中の都道府県
-  const [selectingPrefectures, setSelectingPrefectures] = useState([])
+  const [selectingPrefectures, setSelectingPrefectures] = useState([12])
   const hdSelectingPrefectures = (prefCode) => {
     // 上書き用のデータを用意
     let newState = [...selectingPrefectures];
@@ -47,7 +47,9 @@ export const App = () => {
         selectingPrefectures={selectingPrefectures}
         hdSelectingPrefectures={hdSelectingPrefectures}
       />
-      <Chart/>
+      <Chart
+        populations={populations}
+      />
     </Wrapper>
   )
 };

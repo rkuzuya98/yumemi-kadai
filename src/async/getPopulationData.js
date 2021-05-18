@@ -16,10 +16,21 @@ export const getPopulationData = async(
         .then((response) => response.json())
   
         .then((res) => {
+          const trimData = (res) => {
+            const sortedData = []
+            const totalPopulation = res.result.data[0].data
+            totalPopulation.map((item) => {
+              if (item.year >= 1960 && item.year <= 2020) {
+                sortedData.push(item.value)
+              }
+            })
+            return sortedData
+          }
+  
           altPopulations.push({
-            // name: getJpnPrefecture(item),
             name: item,
-            data: res.result.data[0].data.map((item) => item.value)})
+            data: trimData(res)
+          })
         });
     })
     )
