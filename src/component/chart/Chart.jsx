@@ -35,9 +35,19 @@ export const Chart = ({
   };
   return (
     <Wrapper>
-      <HighchartsReact highcharts={Highcharts} options={options} />
+      <h2>グラフ</h2>
+      <HighchartsReact
+        highcharts={Highcharts}
+        options={options}
+      />
     </Wrapper>
   )
 }
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  padding: 0 10px;
+  background-color: red;
+  & > h2 {
+    font-size: 18px;
+  }
+`

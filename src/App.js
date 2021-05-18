@@ -43,14 +43,16 @@ export const App = () => {
   return (
     <Wrapper>
       <h1>都道府県別の総人口推移グラフ</h1>
-      <Prefectures
-        prefectureData={prefectureData}
-        selectingPrefectures={selectingPrefectures}
-        hdSelectingPrefectures={hdSelectingPrefectures}
-      />
-      <Chart
-        populations={populations}
-      />
+      <div>
+        <Prefectures
+          prefectureData={prefectureData}
+          selectingPrefectures={selectingPrefectures}
+          hdSelectingPrefectures={hdSelectingPrefectures}
+        />
+        <Chart
+          populations={populations}
+        />
+      </div>
     </Wrapper>
   )
 };
@@ -59,5 +61,9 @@ const Wrapper = styled.div`
   padding: 10px 20px;
   & > h1 {
     font-size: 22px;
+  }
+  & > div {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
   }
 `
