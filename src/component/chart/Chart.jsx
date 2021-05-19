@@ -9,18 +9,12 @@ export const Chart = ({
   console.log(populations)
   const options = {
     title: {
-      // text: '人口数'
+      text: '',
     },
     yAxis: {
       title: {
-        text: '人口数',
-        rotation: 0,
-        x: 34,
-        y: -160,
-        style: {
-          fontWeight: 'bold'
-        },
-      }
+        text: '',
+    }
     },
     plotOptions: {
       series: {
@@ -33,9 +27,20 @@ export const Chart = ({
     },
     series: populations
   };
+
+  Highcharts.setOptions({
+    lang: {
+    thousandsSep: ',',
+    numericSymbols: null
+    }
+  });
+
+
   return (
     <Wrapper>
       <h2>グラフ</h2>
+      <span>（人口数）</span>
+      <span>（年度）</span>
       <HighchartsReact
         highcharts={Highcharts}
         options={options}
@@ -45,9 +50,25 @@ export const Chart = ({
 }
 
 const Wrapper = styled.div`
+  position: relative;
   padding: 0 10px;
-  background-color: red;
+  & > span {
+    font-size: 12px;
+    color: #555;
+    z-index: 100;
+    &:first-of-type {
+      position: absolute;
+      top: 55px;
+      left: 20px;
+    }
+    &:last-of-type {
+      position: absolute;
+      top: 422px;
+      right: 10px;
+    }
+  }
   & > h2 {
     font-size: 18px;
+    margin-bottom: 30px;
   }
 `

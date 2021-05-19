@@ -64,6 +64,11 @@ const Wrapper = styled.div`
   }
   & > div {
     display: grid;
-    grid-template-columns: 4fr 6fr;
+  }
+
+  @media screen and (min-width: 768px) {
+    & > div {
+      grid-template-columns: 4fr 6fr;
+    }
   }
 `
