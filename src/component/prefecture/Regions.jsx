@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import styled from 'styled-components';
 import { regionData } from './data/regionCode';
@@ -14,15 +13,15 @@ export const Regions = ({
     <Wrapper>
       {
         regionData.map((item) => {
+          // 現在処理中の地方に含まれる都道府県を格納
           const regionPrefectures = []
           prefectureData.map((d) => {
             const regionCode = sortRegion(d.prefCode);
             if (regionCode === item.regionCode) {
+              // 各都道府県の地方と現在処理中の地方が一致した場合
               regionPrefectures.push(d)
             }
           })
-          // console.log(item.regionCode)
-          // console.log(regionPrefectures)
           return (
             <Region
               key={item.regionCode}

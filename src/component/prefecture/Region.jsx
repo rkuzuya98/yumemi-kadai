@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { sortRegion } from './function/sortRegion';
 import { RegionPrefectures } from './RegionPrefectures';
 
 export const Region = ({
@@ -13,6 +14,17 @@ export const Region = ({
   const [showPrefecture, setShowPrefecture] = useState(false)
   const hdShowPrefecture = () => setShowPrefecture(!showPrefecture)
 
+  // 各地方の選択中の都道府県の数を取得
+  const regionPrefecturesLength = (region) => {
+    let count = 0;
+    selectingPrefectures.map((prefecture) => {
+      if (sortRegion(prefecture) === region.regionCode) {
+        count = count + 1
+      }
+    })
+    return count
+  }
+
   return (
     <Wrapper>
       <div>
@@ -21,6 +33,9 @@ export const Region = ({
             onClick={hdShowPrefecture}
           >
             {region.regionName}
+          </span>
+          <span>
+            {regionPrefecturesLength(region)}
           </span>
         </p>
         <i
@@ -44,35 +59,57 @@ export const Region = ({
 
 const Wrapper = styled.div`
   border-bottom: 1px solid #ddd;
-  & > div {
+  & > div:first-of-type {
+    height: 44px;
     position: relative;
     padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     & > p {
-      /* font-size:  */
+      display: flex;
+      align-items: center;
       font-weight: bold;
       & > span {
-        padding: 5px 10px;
         cursor: pointer;
-        transition: all 0.3s ease;
-        &:hover {
-          opacity: 0.5;
+        &:first-of-type {
+          font-size: 14px;
+          padding: 5px 10px;
+          transition: all 0.3s ease;
+          &:hover {
+            opacity: 0.5;
+          }        
+        }
+        &:last-of-type {
+          font-size: 12px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          padding: 0 0 0.5px 0;
+          width: 22px;
+          height: 22px;
+          background-color: #ddd;
+          color: black;
         }
       }
     }
+
     & > i {
       position: absolute;
       color: #333;
       top: 50%;
       right: 10px;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transform: translateY(-50%);
       border-radius: 50%;
       transition: all 0.3s ease;
-      &.fas.fa-chevron-up {
-        padding: 6px 8px 10px 8px;
-      }
-      &.fas.fa-chevron-down {
-        padding: 10px 8px 6px 8px;
-      }
+      font-size: 12px;
+      padding: 2px 1px 0px 1px;
       &:hover {
         color: white;
         background-color: #333;

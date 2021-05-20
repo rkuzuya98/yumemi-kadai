@@ -23,6 +23,7 @@ export const Prefectures = ({
 
 const Wrapper = styled.div`
   padding: 0 10px;
+  margin-bottom: 40px;
   & > h2 {
     font-size: 18px;
   }

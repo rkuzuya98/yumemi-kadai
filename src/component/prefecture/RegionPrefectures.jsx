@@ -32,11 +32,10 @@ export const RegionPrefectures = ({
 }
 
 const Wrapper = styled.div`
-  /* background-color: red; */
   & > form {
-    padding: 5px 10px 15px 10px;
+    padding: 0px 10px 5px 10px;
     display: flex;
     flex-wrap: wrap;
-    /* font-weight: bold; */
   }
+
 `

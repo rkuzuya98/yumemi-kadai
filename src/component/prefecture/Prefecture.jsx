@@ -23,6 +23,13 @@ export const Prefecture = ({
 const Wrapper = styled.div`
   margin: 5px 10px;
   transition: all 0.3s ease;
+  & > label {
+    font-size: 14px;
+    & > input[type=checkbox] {
+      transform: translateY(1px);
+      color: #8d8585;
+    }
+  }
   &:hover {
     opacity: 0.5;
     cursor: pointer;

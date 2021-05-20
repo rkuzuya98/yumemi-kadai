@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import styled from 'styled-components';
 import Highcharts from 'highcharts';
@@ -6,7 +7,17 @@ import HighchartsReact from "highcharts-react-official";
 export const Chart = ({
   populations
 }) => {
-  console.log(populations)
+  
+  // 何も選択してない場合に挿入するデータ
+  const defaultData = [{
+    data: [],
+    name: "都道府県"
+  }]
+  
+  for(let i = 0; i < 13; i++) {
+    defaultData[0].data.push(null)
+  }
+
   const options = {
     title: {
       text: '',
@@ -25,7 +36,7 @@ export const Chart = ({
         pointStart: 1960,
       }
     },
-    series: populations
+    series: populations.length ? populations : defaultData
   };
 
   Highcharts.setOptions({
@@ -52,6 +63,7 @@ export const Chart = ({
 const Wrapper = styled.div`
   position: relative;
   padding: 0 10px;
+  margin-bottom: 40px;
   & > span {
     font-size: 12px;
     color: #555;

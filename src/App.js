@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { getPopulationData } from "./async/getPopulationData";
@@ -12,7 +11,7 @@ export const App = () => {
   const [prefectureData, setPrefectureData] = useState([])
 
   // 選択中の都道府県
-  const [selectingPrefectures, setSelectingPrefectures] = useState([12])
+  const [selectingPrefectures, setSelectingPrefectures] = useState([])
   const hdSelectingPrefectures = (prefCode) => {
     // 上書き用のデータを用意
     let newState = [...selectingPrefectures];
@@ -44,11 +43,13 @@ export const App = () => {
     <Wrapper>
       <h1>都道府県別の総人口推移グラフ</h1>
       <div>
+        {/* 都道府県エリア */}
         <Prefectures
           prefectureData={prefectureData}
           selectingPrefectures={selectingPrefectures}
           hdSelectingPrefectures={hdSelectingPrefectures}
         />
+        {/* グラフエリア */}
         <Chart
           populations={populations}
         />
@@ -61,6 +62,7 @@ const Wrapper = styled.div`
   padding: 10px 20px;
   & > h1 {
     font-size: 22px;
+    margin-bottom: 20px;
   }
   & > div {
     display: grid;
