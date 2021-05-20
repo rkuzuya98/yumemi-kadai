@@ -23,6 +23,7 @@ export const Regions = ({
             }
           })
           return (
+            // 地方
             <Region
               key={item.regionCode}
               regionPrefectures={regionPrefectures}

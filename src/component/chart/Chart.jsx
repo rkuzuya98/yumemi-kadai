@@ -18,6 +18,7 @@ export const Chart = ({
     defaultData[0].data.push(null)
   }
 
+  // HighchartsReactの設定
   const options = {
     title: {
       text: '',
@@ -29,9 +30,6 @@ export const Chart = ({
     },
     plotOptions: {
       series: {
-        label: {
-          connectorAllowed: false
-        },
         pointInterval: 5,
         pointStart: 1960,
       }

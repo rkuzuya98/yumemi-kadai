@@ -4,7 +4,6 @@ export const regionData = [
     regionName: "北海道地方",
     minPrefCode: 1,
     maxPrefCode: 1,
-
   },
   {
     regionCode: 2,
@@ -47,5 +46,5 @@ export const regionData = [
     regionName: "九州地方",
     minPrefCode: 39,
     maxPrefCode: 47,
-  }
-]
+  },
+];

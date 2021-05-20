@@ -16,6 +16,7 @@ export const RegionPrefectures = ({
           {
             regionPrefectures.map((item) => {
               return (
+                // 都道府県
                 <Prefecture
                   key={item.prefCode}
                   prefecture={item}

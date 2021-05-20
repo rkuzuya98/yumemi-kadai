@@ -47,6 +47,7 @@ export const Region = ({
           onClick={hdShowPrefecture}
         />
       </div>
+      {/* 地方に含まれる都道府県群 */}
       <RegionPrefectures
         showPrefecture={showPrefecture}
         regionPrefectures={regionPrefectures}

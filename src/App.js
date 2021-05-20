@@ -6,38 +6,37 @@ import { Chart } from "./component/chart/Chart";
 import { Prefectures } from "./component/prefecture/Prefectures";
 
 export const App = () => {
-
   // 都道府県データ（API）
-  const [prefectureData, setPrefectureData] = useState([])
+  const [prefectureData, setPrefectureData] = useState([]);
 
   // 選択中の都道府県
-  const [selectingPrefectures, setSelectingPrefectures] = useState([])
+  const [selectingPrefectures, setSelectingPrefectures] = useState([]);
   const hdSelectingPrefectures = (prefCode) => {
     // 上書き用のデータを用意
     let newState = [...selectingPrefectures];
     if (selectingPrefectures.includes(prefCode)) {
       // 現在選択中→削除処理
-      newState.splice(newState.indexOf(prefCode), 1)
-      setSelectingPrefectures(newState)
+      newState.splice(newState.indexOf(prefCode), 1);
+      setSelectingPrefectures(newState);
     } else {
       // not現在選択中→追加処理
-      newState.push(prefCode)
-      setSelectingPrefectures(newState)
+      newState.push(prefCode);
+      setSelectingPrefectures(newState);
     }
-  }
+  };
 
   // 人口データ（選択中の都道府県のみ格納）
-  const [populations, setPopulations] = useState([])
+  const [populations, setPopulations] = useState([]);
 
   // 都道府県データを取得（API）
   useEffect(() => {
-    getPrefecturesData(setPrefectureData)
-  },[])
+    getPrefecturesData(setPrefectureData);
+  }, []);
 
   // 人口データを取得（API）
   useEffect(() => {
-    getPopulationData(selectingPrefectures,setPopulations, prefectureData)
-  },[selectingPrefectures])
+    getPopulationData(selectingPrefectures, setPopulations, prefectureData);
+  }, [selectingPrefectures]);
 
   return (
     <Wrapper>
@@ -50,12 +49,10 @@ export const App = () => {
           hdSelectingPrefectures={hdSelectingPrefectures}
         />
         {/* グラフエリア */}
-        <Chart
-          populations={populations}
-        />
+        <Chart populations={populations} />
       </div>
     </Wrapper>
-  )
+  );
 };
 
 const Wrapper = styled.div`
@@ -73,4 +70,4 @@ const Wrapper = styled.div`
       grid-template-columns: 4fr 6fr;
     }
   }
-`
+`;
